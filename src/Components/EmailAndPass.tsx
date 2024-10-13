@@ -115,8 +115,8 @@ const EmailAndPass = ({navigation, signUp = false, name = '', setName}) => {
         <UserTag size={responsiveWidth(24)} color={colors.black} style={[styles.icon,
           {
             transform: [
-              ...(styles.icon.transform || []), // Spread existing transforms
-              {translateY: -responsiveWidth(24) / 2} // New transform
+              ...(styles.icon.transform || []), 
+              {translateY: -responsiveWidth(24) / 2} 
             ]
           }]}/>
         <TextInput inputMode={"email"} style={styles.textInput} onChangeText={(text) => setEmail(text)}/>
@@ -125,16 +125,16 @@ const EmailAndPass = ({navigation, signUp = false, name = '', setName}) => {
       <View style={styles.textInputContainer}>
         <Lock1 size={responsiveWidth(24)} color={colors.black} style={[styles.icon, {
           transform: [
-            ...(styles.icon.transform || []), // Spread existing transforms
-            {translateY: -responsiveWidth(24) / 2} // New transform
+            ...(styles.icon.transform || []), 
+            {translateY: -responsiveWidth(24) / 2} 
           ]
         }]}/>
         <TextInput secureTextEntry={!showPass} style={styles.textInput} onChangeText={(text) => setPassword(text)}/>
         {showPass ?
           <TouchableOpacity activeOpacity={0.8} onPress={() => setShowPass(!showPass)} style={[styles.invertedIcon, {
             transform: [
-              ...(styles.invertedIcon.transform || []), // Spread existing transforms
-              {translateY: -responsiveWidth(24) / 2} // New transform
+              ...(styles.invertedIcon.transform || []),
+              {translateY: -responsiveWidth(24) / 2} 
             ]
           }]}>
             <Eye size={responsiveWidth(24)} color={colors.black}/>
@@ -142,8 +142,8 @@ const EmailAndPass = ({navigation, signUp = false, name = '', setName}) => {
           :
           <TouchableOpacity activeOpacity={0.8} onPress={() => setShowPass(!showPass)} style={[styles.invertedIcon, {
             transform: [
-              ...(styles.invertedIcon.transform || []), // Spread existing transforms
-              {translateY: -responsiveWidth(24) / 2} // New transform
+              ...(styles.invertedIcon.transform || []), 
+              {translateY: -responsiveWidth(24) / 2} 
             ]
           }]}>
             <EyeSlash size={responsiveWidth(24)} color={colors.black}/>

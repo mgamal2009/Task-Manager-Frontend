@@ -100,53 +100,7 @@ const FilterByModal = ({filterByModal, toggleFilterByModal, onFilterChange, sele
                 <Text style={styles.cancelText}>Cancel</Text>
               </TouchableOpacity>
 
-              {/*<View style={styles.categoryRow}>
-                <Text style={styles.categoryText}>Category</Text>
-                <Octicons name={'chevron-down'} size={responsiveWidth(24)} color={colors.darkGrey}/>
-              </View>
-              <View style={styles.categorySelect}>
-                <Text style={styles.categorySelectText}>All</Text>
-                <Icon name={'checkbox-line'} size={responsiveWidth(24)} color={colors.primary}/>
-              </View>
-              <View style={styles.categorySelect}>
-                <Text style={styles.categorySelectText}>Back-end</Text>
-                <Icon name={'checkbox-line'} size={responsiveWidth(24)} color={colors.primary}/>
-              </View>
-              <View style={styles.categorySelect}>
-                <Text style={styles.categorySelectText}>DevOps</Text>
-                <Icon name={'checkbox-line'} size={responsiveWidth(24)} color={colors.primary}/>
-              </View>
-              <View style={styles.categorySelect}>
-                <Text style={styles.categorySelectText}>UI/UX</Text>
-                <Icon name={'checkbox-line'} size={responsiveWidth(24)} color={colors.primary}/>
-              </View>
-              <View style={styles.categorySelect}>
-                <Text style={styles.categorySelectText}>Front-end</Text>
-                <Icon name={'checkbox-line'} size={responsiveWidth(24)} color={colors.primary}/>
-              </View>
-              <View style={styles.fullLineBreak}/>
-              <View style={styles.categoryRow}>
-                <Text style={styles.categoryText}>Priority</Text>
-                <Octicons name={'chevron-down'} size={responsiveWidth(24)} color={colors.darkGrey}/>
-              </View>
-              <View style={styles.categorySelect}>
-                <Text style={styles.categorySelectText}>High</Text>
-                <Icon name={'checkbox-line'} size={responsiveWidth(24)} color={colors.primary}/>
-              </View>
-              <View style={styles.categorySelect}>
-                <Text style={styles.categorySelectText}>Mid</Text>
-                <Icon name={'checkbox-line'} size={responsiveWidth(24)} color={colors.primary}/>
-              </View>
-              <View style={styles.categorySelect}>
-                <Text style={styles.categorySelectText}>Low</Text>
-                <Icon name={'checkbox-line'} size={responsiveWidth(24)} color={colors.primary}/>
-              </View>*/}
-              {/*<TouchableOpacity activeOpacity={0.8} style={styles.button} onPress={handleApply}>
-                <Text style={styles.buttonText}>Apply</Text>
-              </TouchableOpacity>
-              <TouchableOpacity activeOpacity={0.8} style={styles.cancel} onPress={handleCancel}>
-                <Text style={styles.cancelText}>Cancel</Text>
-              </TouchableOpacity>*/}
+              
             </View>
           </TouchableWithoutFeedback>
         </View>

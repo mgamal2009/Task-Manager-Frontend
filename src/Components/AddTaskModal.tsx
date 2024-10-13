@@ -15,11 +15,7 @@ import RemixIcon from "react-native-remix-icon";
 import DateTimeModal from "./DateTimeModal";
 import {useMutation, useQueryClient} from "@tanstack/react-query";
 import * as ImagePicker from 'expo-image-picker';
-import {createUser} from "../Hooks/AuthApi";
 import {createTask, updateTask} from "../Hooks/TaskApi";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import firebase from "firebase/compat";
-// import storage = firebase.storage;
 import {ref, uploadBytes, getDownloadURL} from 'firebase/storage';
 import {storage} from "../../firebaseConfig";
 
@@ -38,7 +34,6 @@ const AddTaskModal = ({
   const [description, setDescription] = useState(edit ? task.description : '');
   const [date, setDate] = useState(new Date());
   const [dueDate, setDueDate] = useState(edit ? task.dueDate : '');
-  // const [imageUrl, setImageUrl] = useState('');
   const [mode, setMode] = useState<'date' | 'time'>('date');
   const [show, setShow] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
@@ -97,7 +92,6 @@ const AddTaskModal = ({
       return false;
     }
 
-    // If all validations pass
     return true;
   };
   const handleApply = async () => {
@@ -121,7 +115,6 @@ const AddTaskModal = ({
             },
           })
         } else {
-          console.log("upload start")
           const value = await uploadImage();
           await useCreateTask({
             title: taskTitle,
@@ -190,45 +183,26 @@ const AddTaskModal = ({
     }
   };
 
-  // Upload the image to Firebase Storage and get the URL
   const uploadImage = async () => {
     try {
       if (!imageUri) return;
       setUploading(true)
-      // Create a reference to where the image will be stored
       const storageRef = ref(storage, `images/${Date.now()}.jpg`);
-      console.log("storage ref ", storageRef)
-      // Convert image to bytes and upload
       const response = await fetch(imageUri);
-      console.log("response ", response)
       const blob = await response.blob();
 
-      /*uploadBytes(storageRef, blob).then(async (snapshot) => {
-        const downloadUrl = await getDownloadURL(storageRef).then((snapshot) => {
-          return snapshot
-        }).catch((error) => {
-          return ""
-        });
-        setUploadedImageUrl(downloadUrl);
-      }).catch((error) => {
-      });*/
-      console.log({blob})
+      
       const uploadResult = await uploadBytes(storageRef, blob);
-      console.log(uploadResult)
 
-      // Get the URL of the uploaded image
       const downloadUrl = await getDownloadURL(storageRef);
-      console.log(downloadUrl)
       setUploading(false)
-      // Optionally, set the uploaded image URL in the state
       setUploadedImageUrl(downloadUrl);
       setImageUri(null)
-      return downloadUrl; // Return the download URL
+      return downloadUrl; 
 
 
     } catch (error) {
-      console.log(error)
-      return null; // Return null in case of error
+      return null; 
     }
 
   };

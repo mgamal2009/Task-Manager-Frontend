@@ -27,14 +27,14 @@ const getData = async (key) => {
 };
 
 const HomeScreen = ({navigation}) => {
-  const [activeTask, setActiveTask] = useState(null); // Track the task with modals open
+  const [activeTask, setActiveTask] = useState(null); 
   const [editModal, setEditModal] = useState(false)
   const [filterByModal, setFilterByModal] = useState(false)
   const [sortByModal, setSortByModal] = useState(false)
   const [addTaskModal, setAddTaskModal] = useState(false)
   const [editTaskModal, setEditTaskModal] = useState(false)
   const [deleteTaskModal, setDeleteTaskModal] = useState(false)
-  const [fullName, setFullName] = useState(''); // State for storing full name
+  const [fullName, setFullName] = useState('');
   const [searchText, setSearchText] = useState('');
   const [sortCriteria, setSortCriteria] = useState('');
   const [filterCriteria, setFilterCriteria] = useState({
@@ -43,8 +43,8 @@ const HomeScreen = ({navigation}) => {
   });
   useEffect(() => {
     const fetchFullName = async () => {
-      const name = await getData('userName'); // Fetch full name asynchronously
-      setFullName(name); // Update state with the retrieved name
+      const name = await getData('userName'); 
+      setFullName(name); 
     };
 
     fetchFullName();
@@ -149,17 +149,14 @@ const HomeScreen = ({navigation}) => {
   }
   const processedData = data
     ?.filter((item) =>
-      // Apply search filter first
       item.title.toLowerCase().includes(searchText.toLowerCase())
     )
     ?.filter((task) => {
-      // Apply category and priority filtering
       const matchesCategory = filterCriteria.categories.length > 0 ? filterCriteria.categories.includes(task.category) : true;
       const matchesPriority = filterCriteria.priorities.length > 0 ? filterCriteria.priorities.includes(task.priority) : true;
       return matchesCategory && matchesPriority;
     })
     ?.sort((a, b) => {
-      // Apply sorting logic
       if (sortCriteria === 'title-asc') {
         return a.title.localeCompare(b.title);
       } else if (sortCriteria === 'title-desc') {
@@ -203,15 +200,15 @@ const HomeScreen = ({navigation}) => {
       <View style={styles.textInputContainer}>
         <SearchNormal1 size={responsiveWidth(24)} color={colors.black} style={[styles.icon, {
           transform: [
-            ...(styles.icon.transform || []), // Spread existing transforms
-            {translateY: -responsiveWidth(24) / 2} // New transform
+            ...(styles.icon.transform || []), 
+            {translateY: -responsiveWidth(24) / 2} 
           ]
         }]}/>
         <TextInput
           placeholder={"Search tasks"}
           style={styles.textInput}
           value={searchText}
-          onChangeText={setSearchText} // Add this line
+          onChangeText={setSearchText} 
         />
       </View>
       <View style={styles.taskRow}>
@@ -223,7 +220,6 @@ const HomeScreen = ({navigation}) => {
           <Octicons name={'plus'} size={responsiveWidth(24)} color={colors.black}/>
         </TouchableOpacity>
       </View>
-      {/*TODO: Add sort and filter logic*/}
       <View style={styles.sortContainer}>
         <TouchableOpacity style={styles.sortButton} onPress={toggleSortByModal}>
           <Text style={styles.sortText}>{sortValue()}</Text>

@@ -14,8 +14,8 @@ const SignUpScreen = ({navigation}) =>{
       <View style={styles.textInputContainer}>
         <User size={responsiveWidth(24)} color={colors.black} style={[styles.icon,{
           transform: [
-            ...styles.icon.transform || [], // Spread existing transforms or fallback to an empty array
-            { translateY: -responsiveWidth(24) / 2 } // Your new transform
+            ...styles.icon.transform || [], 
+            { translateY: -responsiveWidth(24) / 2 } 
           ]
         }]}/>
         <TextInput style={styles.textInput} onChangeText={(text)=> setName(text)}/>

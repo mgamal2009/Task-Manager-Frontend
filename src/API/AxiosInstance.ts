@@ -1,8 +1,7 @@
 import axios from 'axios';
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const API_URL = 'http://localhost:3000/api';  // Your base API URL
-
+const API_URL = 'http://localhost:3000/api'; 
 export const axiosInstance = axios.create({
   baseURL: API_URL,
   headers: {
@@ -12,7 +11,6 @@ export const axiosInstance = axios.create({
 });
 
 
-// Attach the token dynamically
 axiosInstance.interceptors.request.use(
   async config => {
     const jsonValue = await AsyncStorage.getItem('token');
